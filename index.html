@@ -10,82 +10,31 @@
         <hr>
         <div>
             <div>
-                <h2>Customer Info</h2>
-                    <div class="input name">
-                        <label for="firstName">First Name:</label><input name="firstName" id="firstName" type="text">
-                        <label for="lastName">Last Name:</label><input name="lastName" id="lastName" ><br>
-                    </div>
-                    <div class="input contact">
-                        <label for="phoneNumber">Phone Number:</label><input name="phoneNumber" id="phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                        <label for="email">Email:</label><input name="email" id="email" type="email"><br>
-                        <label for="streetAddress">Street Address:</label><input name="streetAddress" id="streetAddress" type="text"><br>
-                        <label for="city">City:</label><input name="city" id="city" type="text">
-                        <label for="state">City:</label>
-                        <select name="state" id="state">
-                            <option value="CA">CA</option>
-                        </select>
-                        <label for="zip">Zip Code:</label><input name="zip" id="zip" type="text" minlength="5" max="5"><br>
-                    </div>
-                    <div class="button-wrapper">
-                        <span>
-                            <button onclick="add()">New Contact</button><button>Clear</button><button>Search Contact</button>
-                        </span>
-                    </div>
-                    <div id="contact-list"></div>
+                <h2>Add Customer</h2>
+                <div class="input name">
+                    <label for="firstName">First Name : </label><input name="firstName" id="firstName" type="text" required=>
+                    <label for="lastName">Last Name : </label><input name="lastName" id="lastName" required><br>
+                </div>
+                <div class="input contact">
+                    <label for="phoneNumber">Phone Number : </label><input name="phoneNumber" id="phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="10" maxlength="12">
+                    <label for="email">Email : </label><input name="email" id="email" type="email"><br>
+                    <label for="streetAddress">Street Address : </label><input name="streetAddress" id="streetAddress" type="text"><br>
+                    <label for="city">City : </label><input name="city" id="city" type="text">
+                    <label for="state">State : </label>
+                    <select name="state" id="state">
+                        <option value="CA">CA</option>
+                    </select>
+                    <label for="zip">Zip Code : </label><input name="zip" id="zip" type="text" minlength="5" max="5"><br>
+                </div>
+                <div class="button-wrapper">
+                    <span>
+                        <button onclick="add()">New Contact</button>
+                    </span>
+                </div>
+                <div id="contact-list"></div>
             </div>
         </div>
 
-        <script>
-            var contact = [];
-
-            function add() {
-                var fName = document.getElementById("firstName").value;
-                var lName = document.getElementById("lastName").value;
-                var phone = document.getElementById("phoneNumber").value;
-                var email = document.getElementById("email").value;
-                var streetAddress = document.getElementById("streetAddress").value;
-                var city = document.getElementById("city").value;
-                var state = document.getElementById("state").value;
-                var zip = document.getElementById("zip").value;
-
-                var newContact  = {
-                    newFName    :   fName,
-                    newLName    :   lName,
-                    newFullName :   fName + " " + lName,
-                    newPhone    :   phone,
-                    newEmail    :   email,
-                    newAddress  :   streetAddress + ", " + city + ", " + state + " " + zip,
-                    newStreetAddress    :   streetAddress,
-                    newCity     :   city,
-                    newState    :   state,
-                    newZip  :   zip
-                }
-
-                contact.push(newContact);
-
-                updateDiv();
-            }
-
-            function updateDiv(){
-                var tempContent = "";
-                for(var i = 0; i < contact.length; i++){
-
-                   tempContent += "<p>Name : " + contact[i].newFullName 
-                   + "<br>Phone Number : " + contact[i].newPhone 
-                   + "<br>Email : " + contact[i].newEmail
-                   + "<br>Address : " + contact[i].newAddress
-                   + "<br><span onclick='del("+ i +")'>[del]</span>"
-                   + "</p>";
-                }
-
-                document.getElementById("contact-list").innerHTML = tempContent;
-            }
-
-            function del(i){
-                contact.splice(i, 1);
-
-                updateDiv();
-            }
-        </script>
+        <script src='script.js'></script>
     </body>
 </html>
