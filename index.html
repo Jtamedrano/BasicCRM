@@ -31,6 +31,7 @@
                             <button onclick="add()">New Contact</button><button>Clear</button><button>Search Contact</button>
                         </span>
                     </div>
+                    <div id="contact-list"></div>
             </div>
         </div>
 
@@ -53,7 +54,7 @@
                     newFullName :   fName + " " + lName,
                     newPhone    :   phone,
                     newEmail    :   email,
-                    newAddress  :   streetAddress + ", " + city + " " + state + ", " + zip,
+                    newAddress  :   streetAddress + ", " + city + ", " + state + " " + zip,
                     newStreetAddress    :   streetAddress,
                     newCity     :   city,
                     newState    :   state,
@@ -61,6 +62,29 @@
                 }
 
                 contact.push(newContact);
+
+                updateDiv();
+            }
+
+            function updateDiv(){
+                var tempContent = "";
+                for(var i = 0; i < contact.length; i++){
+
+                   tempContent += "<p>Name : " + contact[i].newFullName 
+                   + "<br>Phone Number : " + contact[i].newPhone 
+                   + "<br>Email : " + contact[i].newEmail
+                   + "<br>Address : " + contact[i].newAddress
+                   + "<br><span onclick='del("+ i +")'>[del]</span>"
+                   + "</p>";
+                }
+
+                document.getElementById("contact-list").innerHTML = tempContent;
+            }
+
+            function del(i){
+                contact.splice(i, 1);
+
+                updateDiv();
             }
         </script>
     </body>
