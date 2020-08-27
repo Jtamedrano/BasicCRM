@@ -11,23 +11,57 @@
         <div>
             <div>
                 <h2>Customer Info</h2>
-                <form>
-                    <div class="input">
-                        <label>Name:</label><input type="text"><br>
+                    <div class="input name">
+                        <label for="firstName">First Name:</label><input name="firstName" id="firstName" type="text">
+                        <label for="lastName">Last Name:</label><input name="lastName" id="lastName" ><br>
                     </div>
-                    <div class="input">
-                        <label>Phone Number:</label><input type="tel"><br>
-                    </div>
-                    <div class="input">
-                        <label>Email:</label><input type="email"><br>
+                    <div class="input contact">
+                        <label for="phoneNumber">Phone Number:</label><input name="phoneNumber" id="phoneNumber" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        <label for="email">Email:</label><input name="email" id="email" type="email"><br>
+                        <label for="streetAddress">Street Address:</label><input name="streetAddress" id="streetAddress" type="text"><br>
+                        <label for="city">City:</label><input name="city" id="city" type="text">
+                        <label for="state">City:</label>
+                        <select name="state" id="state">
+                            <option value="CA">CA</option>
+                        </select>
+                        <label for="zip">Zip Code:</label><input name="zip" id="zip" type="text" minlength="5" max="5"><br>
                     </div>
                     <div class="button-wrapper">
                         <span>
-                            <button>New Contact</button><button>Clear</button><button>Search Contact</button>
+                            <button onclick="add()">New Contact</button><button>Clear</button><button>Search Contact</button>
                         </span>
                     </div>
-                </form>
             </div>
         </div>
+
+        <script>
+            var contact = [];
+
+            function add() {
+                var fName = document.getElementById("firstName").value;
+                var lName = document.getElementById("lastName").value;
+                var phone = document.getElementById("phoneNumber").value;
+                var email = document.getElementById("email").value;
+                var streetAddress = document.getElementById("streetAddress").value;
+                var city = document.getElementById("city").value;
+                var state = document.getElementById("state").value;
+                var zip = document.getElementById("zip").value;
+
+                var newContact  = {
+                    newFName    :   fName,
+                    newLName    :   lName,
+                    newFullName :   fName + " " + lName,
+                    newPhone    :   phone,
+                    newEmail    :   email,
+                    newAddress  :   streetAddress + ", " + city + " " + state + ", " + zip,
+                    newStreetAddress    :   streetAddress,
+                    newCity     :   city,
+                    newState    :   state,
+                    newZip  :   zip
+                }
+
+                contact.push(newContact);
+            }
+        </script>
     </body>
 </html>
