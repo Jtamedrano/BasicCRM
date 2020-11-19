@@ -2,7 +2,7 @@
 
 ## About BasicCRM
 
-A Customer Relation Manager made for salespeople, made by salespeople.
+A Customer Relationship Manager made for salespeople, made by salespeople.
 
 ## Planned Features
 
