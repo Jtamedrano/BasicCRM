@@ -1,8 +1,10 @@
 # BasicCRM
 
-# Learning to make a CRM
+## About BasicCRM
 
-## 1 Week per Topic
+A Customer Relation Manager made for salespeople, made by salespeople.
+
+## Planned Features
 
 - [ ] Dashboards
 - [ ] Contact Management
