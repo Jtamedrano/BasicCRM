@@ -5,7 +5,7 @@ import CustomerTable from "./MainSection/CustomerTable";
 const StyledSection = styled.section`
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-direction: column;
 
   .sectionTop {
@@ -57,6 +57,7 @@ const StyledSection = styled.section`
   .sectionBody {
     margin-top: 2em;
     padding: 0;
+    flex: 1;
   }
   /* sectionBody table */
 

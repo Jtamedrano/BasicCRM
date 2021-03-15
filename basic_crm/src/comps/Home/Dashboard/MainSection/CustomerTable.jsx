@@ -21,6 +21,7 @@ function CustomerTable(props) {
         columns={columns}
         tooltips={true}
         layout={"fitData"}
+        options={{ pagination: "local", height: "100%" }}
       />
     </>
   );
